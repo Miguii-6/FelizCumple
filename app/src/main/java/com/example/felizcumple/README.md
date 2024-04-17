@@ -246,14 +246,14 @@ Con este nuevo elemento buscaremos para la carta de cumpleaños poner el nombre 
 Comenzaremos llendo a la función de `GreetingText()` y entre los parentesis de la función meteremos un parámetro `from`
 de tipo `String`. Así seria
 
-```php
+```kotlin
 fun GreetingText(message: String, from: String, modifier: Modifier = Modifier)
 ```
 
 En la misma función agregaremos otro elemento componible de tipo `Text` que acepte un argumento `text` con el valor de
 `from` y le pones un argumento de fontSize cun valor en mi caso de `30.sp`. Así seria el código:
 
-```php
+```kotlin
 @Composable
 fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
     Text(
@@ -272,7 +272,7 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
 Para acabar de agregarlo nos desplazaremos a la función de `CartaCumplePreview()`, en esta función agregaremos un nuevo
 argumento String para firmar la tarjeta en mi caso lo firmare así `De Miguel`. El código sería asi desta función:
 
-```php
+```kotlin
 @Preview(showBackground = true)
 @Composable
 fun CartaCumplePreview() {
@@ -307,7 +307,7 @@ estructurar la interfaz de usuario. Aquí está cómo se usan:
 Estos elementos componibles toman otros componentes (como Text, Image, etc.) como argumentos, permitiéndote colocar y
 organizar elementos dentro de ellos para construir interfaces de usuario complejas y dinámicas.
 
-```php
+```kotlin
 // Ejemplo de uso de Row en Jetpack Compose
 Row {
     Text("Primera fila")
@@ -322,7 +322,7 @@ En Jetpack Compose, la sintaxis de expresión lambda final se utiliza comúnment
 configuraciones dentro de funciones componibles. Esta sintaxis simplifica la escritura y hace que el código sea más
 conciso. Por ejemplo, en el uso de la función Row:
 
-```php
+```kotlin
 Row {
     Text("Elemento 1")
     Text("Elemento 2")
@@ -337,4 +337,43 @@ ejemplo de la sintaxis de expresión lambda final en Jetpack Compose.
 La sintaxis de expresión lambda final es una característica importante en Jetpack Compose que permite una composición
 más fluida y legible de interfaces de usuario mediante la configuración de comportamientos y estructuras de forma declarativa.
 
+#### Como organizar los elementos de texto en una fila o columna o contenedor
 
+Nos desplazaremos a la función de `GreetingText()` y seleccionas todo lo que esta dentro de la función y le damos a la
+bombilla
+
+![Bombilla](Imagenes/img_9.png)
+
+Después le das a `Sourround with widget`
+
+![Widget](Imagenes/img_10.png)
+
+Y ahora seleccionamos en que manera quieres que se vea en mi caso usare la columna por estetíca.
+
+![Column](Imagenes/img_11.png)
+
+Al darle se te importará automaticamente lo siguiente: `import androidx.compose.foundation.layout.Column`.
+Y debes darle un parametro modificador al elemento `Column`, pasando el parámetro modificar al elemento
+secundario en los elementos componibles para merterno entre parentesis. Así seria el código:
+
+```kotlin
+@Composable
+fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
+    Column(modifier = modifier) {
+        Text(
+            text = message,
+            fontSize = 100.sp,
+            lineHeight = 116.sp
+
+        )
+        Text(
+            text = from,
+            fontSize = 30.sp
+        )
+    }
+}
+```
+
+Y así se veria el resultado de la vista previa:
+
+![FinVista](Imagenes/img_12.png)
