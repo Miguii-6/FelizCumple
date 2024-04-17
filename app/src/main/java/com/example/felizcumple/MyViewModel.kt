@@ -175,6 +175,14 @@ class MyViewModel: ViewModel()  {
         return Data.round.value
     }
 
+    /**
+     * Obtiene el récord
+     * @return récord
+     */
+    fun getRecord(): Int {
+        return Data.record.value
+    }
+
 
 
 }

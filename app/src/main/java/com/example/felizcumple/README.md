@@ -285,5 +285,11 @@ que a su vez llama a la anterior función `showBotSequence`
         return Data.round.value
     }
 ```
+- Función que recolle o récord do usuario:
 
+```kotlin
+    fun getRecord(): Int {
+        return Data.record.value
+    }
+```
 
