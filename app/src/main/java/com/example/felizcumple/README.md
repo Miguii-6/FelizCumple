@@ -520,4 +520,17 @@ y eliminaremos esas lineas donde esta llamado a la función eliminada.
 
 
 
+Ahora iremos por la función de `GreetingPreview` donde agregaremos la siguiente variable
+```kotlin
+    var myViewModel = MyViewModel()
+
+```
+
+Donde en la parte de `Theme` agregaremos una `Surface` y también una línea de código para desde la
+interfaz del user llamando a `myViewModel` así quedaria el código de `GreetingPreview` entero:
+```kotlin
+
+```
+
+
 

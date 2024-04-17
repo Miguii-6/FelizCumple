@@ -9,8 +9,10 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.felizcumple.ui.theme.FelizCumpleTheme
+import com.example.felizcumple.ui.theme.UserInterface
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +34,13 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-
+    var myViewModel = MyViewModel()
     FelizCumpleTheme {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = Color(255,100,150)
+        ) {
+            UserInterface(miViewModel = myViewModel)
+        }
     }
 }
