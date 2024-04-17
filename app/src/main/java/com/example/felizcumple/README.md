@@ -350,6 +350,21 @@ fun round(myViewModel: MyViewModel){
 }
 ```
 
+- Función composable que muestra los botones de colores del juego
+
+```kotlin
+@Composable
+fun botonesSimon(myViewModel: MyViewModel){
+  Row (modifier = Modifier.padding(0.dp,100.dp,0.dp,0.dp)){
+    columnButtonSimon(color = MyColors.BLUE.color,myViewModel)
+    columnButtonSimon(color = MyColors.GREEN.color, myViewModel)
+  }
+  Row (){
+    columnButtonSimon(color = MyColors.RED.color, myViewModel)
+    columnButtonSimon(color = MyColors.YELLOW.color, myViewModel)
+  }
+
+```
 
 
 

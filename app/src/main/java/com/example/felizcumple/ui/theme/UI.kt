@@ -5,6 +5,16 @@ import androidx.compose.foundation.layout.Column
 import com.example.felizcumple.MyViewModel
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Text
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.felizcumple.MyColors
+import com.example.merge.R
+
 
 var ctxt: Context? = null
 
@@ -55,5 +65,21 @@ fun round(myViewModel: MyViewModel){
                 fontSize = 25.sp
             )
         }
+    }
+}
+
+/**
+ * Composable que muestra los botones de colores del juego "Simón Dice".
+ * @param myViewModel ViewModel que contiene la lógica del juego.
+ */
+@Composable
+fun botonesSimon(myViewModel: MyViewModel){
+    Row (modifier = Modifier.padding(0.dp,100.dp,0.dp,0.dp)){
+        columnButtonSimon(color = MyColors.BLUE.color,myViewModel)
+        columnButtonSimon(color = MyColors.GREEN.color, myViewModel)
+    }
+    Row (){
+        columnButtonSimon(color = MyColors.RED.color, myViewModel)
+        columnButtonSimon(color = MyColors.YELLOW.color, myViewModel)
     }
 }
