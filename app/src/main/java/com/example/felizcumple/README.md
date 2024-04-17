@@ -126,12 +126,26 @@ nombre la clase `: ViewModel()`.
 
 - Función para reiniciar la secuencia del bot:
 
-```
+```kotlin
 /**
      * Reinicia la secuencia del bot
      */
     fun resetBotSecuence() {
         Data.botSecuence.clear()
+    }
+```
+
+- Función para empezar el juego y reiniciarlo, esta es una que llama a las funciones anteriores:
+
+```kotlin
+/**
+     * Reinicia y inicia el juego
+     */
+    fun initGame() {
+        resetRound()
+        resetUserSecuence()
+        resetBotSecuence()
+        Data.state = State.START
     }
 ```
 

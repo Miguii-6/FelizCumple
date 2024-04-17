@@ -33,4 +33,14 @@ class MyViewModel: ViewModel()  {
         Data.botSecuence.clear()
     }
 
+    /**
+     * Reinicia y inicia el juego
+     */
+    fun initGame() {
+        resetRound()
+        resetUserSecuence()
+        resetBotSecuence()
+        Data.state = State.START
+    }
+
 }
