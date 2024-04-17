@@ -18,4 +18,11 @@ class MyViewModel: ViewModel()  {
     fun resetRound() {
         Data.round.value = 0
     }
+
+    /**
+     * Reinicia la secuencia del usuario
+     */
+    fun resetUserSecuence() {
+        Data.UserSecuence.clear()
+    }
 }

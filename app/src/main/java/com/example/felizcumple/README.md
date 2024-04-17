@@ -113,3 +113,14 @@ nombre la clase `: ViewModel()`.
     }
 ```
 
+- Función para reiniciar la secuencia del usuario:
+
+```kotlin
+ /**
+     * Reinicia la secuencia del usuario
+     */
+    fun resetUserSecuence() {
+        Data.UserSecuence.clear()
+    }
+```
+
