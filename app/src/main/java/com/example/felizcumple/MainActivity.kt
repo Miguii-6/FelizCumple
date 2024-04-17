@@ -29,6 +29,10 @@ class MainActivity : ComponentActivity() {
 }
 
 
+@Composable
+fun GreetingText() {
+}
+
 
 /**
  * Esta función define una vista previa de una tarjeta de cumpleaños personalizada.

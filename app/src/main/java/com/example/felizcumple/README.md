@@ -135,3 +135,13 @@ fun CartaCumplePreview() {
     }
 }
 ```
+
+Para añadir el elemento de texto encima de la función `CartaCumplePreview()`, agregaremos una nueva función llamada
+`GreetingText()`. Importante agrega también el `@Composable` antes de la función, ya que esta función de Compose será
+un elemento componible `Text`. Así seria como estaría el código agregado:
+
+```php 
+@Composable
+fun GreetingText() {
+}
+```
