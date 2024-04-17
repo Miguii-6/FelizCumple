@@ -280,4 +280,11 @@ que a su vez llama a la anterior función `showBotSequence`
 
 ```
 
+- Función para obtener el estado de reproducción del juego
+
+```kotlin
+    fun getPlayStatus(): String {
+        return Data.playStatus.value
+    }
+```
 

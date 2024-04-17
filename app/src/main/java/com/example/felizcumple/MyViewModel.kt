@@ -200,6 +200,14 @@ class MyViewModel: ViewModel()  {
         }
     }
 
+    /**
+     * Obtiene el estado de reproducción del juego
+     * @return estado de reproducción
+     */
+    fun getPlayStatus(): String {
+        return Data.playStatus.value
+    }
+
 
 
 
