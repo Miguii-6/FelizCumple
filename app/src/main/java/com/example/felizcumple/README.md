@@ -278,6 +278,12 @@ que a su vez llama a la anterior función `showBotSequence`
     }
 ```
 
+- Función para recoller a ronda actual:
 
+```kotlin
+    fun getRound(): Int {
+        return Data.round.value
+    }
+```
 
 

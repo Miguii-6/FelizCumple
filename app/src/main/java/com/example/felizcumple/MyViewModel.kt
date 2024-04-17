@@ -1,6 +1,7 @@
 package com.example.felizcumple
 
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.runtime.MutableState
 import androidx.lifecycle.ViewModel
 import androidx.compose.ui.graphics.Color
@@ -164,6 +165,14 @@ class MyViewModel: ViewModel()  {
             initGame()
             Log.d("ESTADO", Data.state.toString())
         }
+    }
+
+    /**
+     * Obtiene la ronda actual
+     * @return ronda
+     */
+    fun getRound(): Int {
+        return Data.round.value
     }
 
 
