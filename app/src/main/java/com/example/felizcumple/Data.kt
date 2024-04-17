@@ -33,3 +33,21 @@ object Data {
     var colorUserFlag: Color = Color.White
 }
 
+
+// Enumeración que define los colores del juego
+enum class MyColors(val color: MutableState<Color>) {
+    BLUE(mutableStateOf(Color.Blue)),
+    GREEN(mutableStateOf(Color.Green)),
+    RED(mutableStateOf(Color.Red)),
+    YELLOW(mutableStateOf(Color.Yellow))
+}
+
+// Enumeración que define los estados del juego
+enum class State {
+    START,
+    SEQUENCE,
+    WAITING,
+    INPUT,
+    CHECKING,
+    FINISH
+}

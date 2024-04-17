@@ -31,3 +31,35 @@ object Data {
 
 ```
 
+Al poner todas las variables poco a poco falta los enum de `State` donde estan los estados del juego, el enum de `MyColors`
+donde estan los colores usados y de ahí los errores.
+
+
+- **MyColors:** Una enumeración que define los colores utilizados en el juego como valores con estado mutable (MutableState<Color>).
+```php 
+
+// Enumeración que define los colores del juego
+enum class MyColors(val color: MutableState<Color>) {
+    BLUE(mutableStateOf(Color.Blue)),
+    GREEN(mutableStateOf(Color.Green)),
+    RED(mutableStateOf(Color.Red)),
+    YELLOW(mutableStateOf(Color.Yellow))
+}
+
+```
+
+- **State:** Una enumeración que define los posibles estados del juego, como el inicio, la visualización de secuencias, la
+  espera de entrada, la entrada del jugador, la verificación y la finalización del juego.
+```php
+// Enumeración que define los estados del juego
+enum class State {
+    START,
+    SEQUENCE,
+    WAITING,
+    INPUT,
+    CHECKING,
+    FINISH
+}
+
+```
+
