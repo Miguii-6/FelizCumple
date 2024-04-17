@@ -377,3 +377,28 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
 Y así se veria el resultado de la vista previa:
 
 ![FinVista](Imagenes/img_12.png)
+
+### Agregarlo a la app
+
+Una vez que estés conforme con la vista previa, es momento de agregar el elemento componible a tu app en el dispositivo
+o el emulador. Para esto nos desplazaremos a la función de `onCreate()`. Una vez ahí en el bloque de `Surface` llamaremos
+a la función de `GreetingText()` con tus felicitaciones y tu firma así seria el código en mi caso:
+
+```kotlin
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            FelizCumpleTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    GreetingText(message = "Feliz Cumple Juan", from ="From Emma")
+                }
+            }
+        }
+    }
+}
+```
