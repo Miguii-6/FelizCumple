@@ -171,3 +171,26 @@ fun darkenColor(color: Color, factor: Float): Color {
     }
 ```
 
+- Función que muestra la secuencia del bot al usuario
+
+```kotlin
+/**
+     * Muestra la secuencia del bot al usuario
+     */
+    fun showBotSequence() {
+        viewModelScope.launch {
+            for (colorIndex in Data.botSecuence) {
+                Data.colorFlag = Data.colors[colorIndex].value
+                Data.colorsMyColors[colorIndex].color.value = darkenColor(Data.colorFlag, 0.5f)
+                Data.sounds[colorIndex].start()
+                delay(500L)
+                Data.colorsMyColors[colorIndex].color.value = Data.colorFlag
+                delay(250L)
+            }
+            Data.state = State.WAITING
+            Log.d("ESTADO", Data.state.toString())
+        }
+        Log.d("ESTADO", Data.botSecuence.toString())
+    }
+```
+

@@ -1,7 +1,12 @@
 package com.example.felizcumple
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.compose.ui.graphics.Color
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.delay
+
 
 
 class MyViewModel: ViewModel()  {
@@ -69,6 +74,23 @@ class MyViewModel: ViewModel()  {
         val g = (color.green * 255 * (1 - factor) / 255 + factor).coerceIn(0f, 1f)
         val b = (color.blue * 255 * (1 - factor) / 255 + factor).coerceIn(0f, 1f)
         return Color(r, g, b, color.alpha)
+    }
+
+    /**
+     * Muestra la secuencia del bot al usuario
+     */
+    fun showBotSequence() {
+        viewModelScope.launch {
+            for (colorIndex in Data.botSecuence) {
+                Data.colorFlag = Data.colors[colorIndex].value
+                Data.colorsMyColors[colorIndex].color.value = darkenColor(Data.colorFlag, 0.5f)
+                Data.colorsMyColors[colorIndex].color.value = Data.colorFlag
+                delay(250L)
+            }
+            Data.state = State.WAITING
+            Log.d("ESTADO", Data.state.toString())
+        }
+        Log.d("ESTADO", Data.botSecuence.toString())
     }
 
 
