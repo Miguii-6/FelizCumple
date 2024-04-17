@@ -145,3 +145,12 @@ un elemento componible `Text`. Así seria como estaría el código agregado:
 fun GreetingText() {
 }
 ```
+
+Seguiremos añadiendo al elemento componible entre los parentesis un parámetro `Modifier` y pase ese `modifier`  a su
+primer elemento secundario.
+
+```php 
+@Composable
+fun GreetingText(modifier: Modifier = Modifier) {
+}
+```
