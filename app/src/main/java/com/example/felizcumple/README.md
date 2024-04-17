@@ -395,10 +395,14 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingText(message = "Feliz Cumple Juan", from ="From Emma")
+                    GreetingText(message = "Feliz Cumple Juan", from ="De Miguel")
                 }
             }
         }
     }
 }
 ```
+
+Resultado en el emulador en mi caso:
+
+![Movil](Imagenes/img_13.png)
