@@ -162,3 +162,15 @@ Procederemos al mensage agregando un parámetro `message` de tipo `String` a est
 fun GreetingText(message: String, modifier: Modifier = Modifier) {
 }
 ```
+
+Seguiremos con la misma función agregando un elemento `Text` componible para que pase el mensaje  de texto como un
+argumento con nombre.
+
+```php
+@Composable
+fun GreetingText(message: String, modifier: Modifier = Modifier) {
+    Text(
+        text = message
+    )
+}
+```
