@@ -194,3 +194,26 @@ fun CartaCumplePreview() {
 Resultado en la ventana de la derecha del panel de Split:
 
 ![Juan](Imagenes/img_4.png)
+
+### Cambio del tamaño de la fuente
+
+A partir de ahora iremos algo más rápidos, seguiremos con el tamaño de la fuente del mensaje para esto debemos saber
+que son los pixeles escalables.
+
+<details>
+  <summary><b>¿Qué son los pixeles escalables (sp)?</b></summary>
+
+Los "pixeles escalables" (sp) son una unidad de medida en Android utilizada principalmente para definir tamaños de texto
+y otros elementos de interfaz de usuario que deben adaptarse al tamaño de fuente preferido del usuario. A diferencia de
+los píxeles densidad independiente (dp), los sp tienen en cuenta la configuración de tamaño de fuente del dispositivo,
+ajustando automáticamente su tamaño para mantener la legibilidad y la coherencia visual. Esto es especialmente útil para
+asegurar una experiencia de usuario consistente en diferentes dispositivos y configuraciones de accesibilidad,
+proporcionando un diseño adaptable y accesible en aplicaciones Android.
+
+</details>
+
+Una vez sabiendo esto nos moveremos a la función de `GreetingText()` en el elemento componible `Text`, donde agregaremos
+un argumento `fontSize` y coomo segundo argumento en mi ejemplo pondremos el valor de `100.sp`. Aquí tendremos que
+importar `androidx.compose.ui.unit.sp` para que non aparezca o siguiente error:
+
+![SP](Imagenes/img_5.png)
