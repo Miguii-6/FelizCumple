@@ -286,5 +286,55 @@ Así seria el resultado de la vista previa:
 
 ![From](Imagenes/img_8.png)
 
+### Como organizar los elementos de texto en una fila y columna
+
+#### Jerarquía de la Ui
+
+La jerarquía de la interfaz de usuario en Jetpack Compose se basa en la composición de componentes, donde un componente
+puede contener uno o más componentes dentro de él. Esta organización se refleja en una estructura jerárquica de elementos
+visuales. Algunos términos comunes son "padre" (superior) e "hijo" (secundario), donde un elemento superior contiene uno
+o más elementos secundarios, que a su vez pueden contener más elementos secundarios. En esta sección, exploraremos los
+componentes componibles Column, Row y Box, que actúan como elementos superiores en la jerarquía de la interfaz de usuario.
+
+##### Column, Row y Box en Compose
+Los elementos Column, Row y Box son funciones componibles básicas en Jetpack Compose utilizadas para organizar y
+estructurar la interfaz de usuario. Aquí está cómo se usan:
+
+- Column: Organiza los elementos de forma vertical, uno debajo del otro.
+- Row: Organiza los elementos de forma horizontal, uno al lado del otro.
+- Box: Ofrece flexibilidad para posicionar y ajustar elementos de forma personalizada.
+
+Estos elementos componibles toman otros componentes (como Text, Image, etc.) como argumentos, permitiéndote colocar y
+organizar elementos dentro de ellos para construir interfaces de usuario complejas y dinámicas.
+
+```php
+// Ejemplo de uso de Row en Jetpack Compose
+Row {
+    Text("Primera fila")
+    Text("Segunda fila")
+}
+
+```
+En este ejemplo, los dos componentes Text se colocan uno al lado del otro en una fila horizontal.
+
+#### Sintaxis de Expresión Lambda en Jetpack Compose
+En Jetpack Compose, la sintaxis de expresión lambda final se utiliza comúnmente para definir comportamientos o
+configuraciones dentro de funciones componibles. Esta sintaxis simplifica la escritura y hace que el código sea más
+conciso. Por ejemplo, en el uso de la función Row:
+
+```php
+Row {
+    Text("Elemento 1")
+    Text("Elemento 2")
+}
+
+```
+
+Aquí, la expresión lambda se utiliza para describir los elementos secundarios (Text) que deben colocarse dentro de la
+fila (Row). La ausencia de paréntesis y el uso directo de llaves { } alrededor de los elementos secundarios es un
+ejemplo de la sintaxis de expresión lambda final en Jetpack Compose.
+
+La sintaxis de expresión lambda final es una característica importante en Jetpack Compose que permite una composición
+más fluida y legible de interfaces de usuario mediante la configuración de comportamientos y estructuras de forma declarativa.
 
 
