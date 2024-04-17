@@ -11,4 +11,11 @@ class MyViewModel: ViewModel()  {
     fun generateRandomNumber(max: Int): Int {
         return (0..max-1).random()
     }
+
+    /**
+     * Reinicia la ronda
+     */
+    fun resetRound() {
+        Data.round.value = 0
+    }
 }

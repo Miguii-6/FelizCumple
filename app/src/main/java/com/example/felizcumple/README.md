@@ -89,7 +89,7 @@ nombre la clase `: ViewModel()`.
 
 ### Funciones
 
-- función para generar un número aleatorio:
+- Función para generar un número aleatorio:
 
 ```kotlin
 /**
@@ -99,6 +99,17 @@ nombre la clase `: ViewModel()`.
      */
     fun generateRandomNumber(max: Int): Int {
         return (0..max-1).random()
+    }
+```
+
+- Función para reiniciar la ronda:
+
+```kotlin
+/**
+     * Reinicia la ronda
+     */
+    fun resetRound() {
+        Data.round.value = 0
     }
 ```
 
