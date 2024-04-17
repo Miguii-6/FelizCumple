@@ -255,5 +255,29 @@ que a su vez llama a la anterior función `showBotSequence`
     }
 ```
 
+- Función para saber si al usuario le da al boton correcto incrementa a ronda e reinicia a secuencia e actualiza o record si e necesario e si non e correcta acaba o xogo
+
+```kotlin
+    fun checkSecuence() {
+        Data.state = State.CHECKING
+        Log.d("ESTADO", Data.state.toString())
+        if (Data.UserSecuence == Data.botSecuence) {
+            Data.round.value++
+            if ((Data.round.value - 1) > Data.record.value) {
+                Data.record.value = Data.round.value - 1
+            }
+            Data.UserSecuence.clear()
+            increaseShowBotSecuence()
+        } else {
+            Data.state = State.FINISH
+            Toast.makeText(ctxt, "G A M E   O V E R", Toast.LENGTH_SHORT).show()
+            Data.playStatus.value = "Start"
+            initGame()
+            Log.d("ESTADO", Data.state.toString())
+        }
+    }
+```
+
+
 
 

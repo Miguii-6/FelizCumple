@@ -141,6 +141,31 @@ class MyViewModel: ViewModel()  {
         Log.d("ESTADO", Data.state.toString())
     }
 
+    /**
+     * Comprueba si la secuencia del usuario es correcta
+     * Si es correcta, incrementa la ronda, reinicia la secuencia del usuario
+     * y actualiza el récord si es necesario
+     * Si no es correcta, finaliza el juego
+     */
+    fun checkSecuence() {
+        Data.state = State.CHECKING
+        Log.d("ESTADO", Data.state.toString())
+        if (Data.UserSecuence == Data.botSecuence) {
+            Data.round.value++
+            if ((Data.round.value - 1) > Data.record.value) {
+                Data.record.value = Data.round.value - 1
+            }
+            Data.UserSecuence.clear()
+            increaseShowBotSecuence()
+        } else {
+            Data.state = State.FINISH
+            Toast.makeText(ctxt, "G A M E   O V E R", Toast.LENGTH_SHORT).show()
+            Data.playStatus.value = "Start"
+            initGame()
+            Log.d("ESTADO", Data.state.toString())
+        }
+    }
+
 
 
 }
