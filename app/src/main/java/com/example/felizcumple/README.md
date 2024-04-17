@@ -447,6 +447,77 @@ fun startIncreaseRound(miViewModel: MyViewModel) {
 }
 ```
 
+## Clase MainActivity
+
+Por último esta clase procederemos con el código sin modificar que es este del cual procederemos a 
+modificar y quitar código:
+
+```kotlin
+package com.example.felizcumple
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.felizcumple.ui.theme.FelizCumpleTheme
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            FelizCumpleTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    Greeting("Android")
+                }
+            }
+        }
+    }
+}
+
+
+
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "Hello $name!",
+        modifier = modifier
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    FelizCumpleTheme {
+        Greeting("Android")
+    }
+}
+```
+
+De este código eliminaremos la función de `Greeting`, es decir, esta parte de código:
+
+```kotlin
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "Hello $name!",
+        modifier = modifier
+    )
+}
+```
+
+Al hacer esto dara error debido a que se llama en la función `onCreate()` y en la función `GreetingPreview`
+y eliminaremos esas lineas donde esta llamado a la función eliminada.
+
 
 
 
