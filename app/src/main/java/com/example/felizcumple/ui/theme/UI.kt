@@ -83,3 +83,31 @@ fun botonesSimon(myViewModel: MyViewModel){
         columnButtonSimon(color = MyColors.YELLOW.color, myViewModel)
     }
 }
+/**
+ * Composable que define un botón de color para el juego "Simón Dice".
+ * @param color Color del botón.
+ * @param myViewModel ViewModel que contiene la lógica del juego.
+ */
+@Composable
+fun columnButtonSimon(color: MutableState<Color>, myViewModel: MyViewModel){
+    Column {
+        Button(
+            onClick = {
+                // Maneja la lógica de interacción cuando se presiona un botón de color
+                if (Data.state != State.SEQUENCE && Data.state != State.INPUT && !myViewModel.getPlayStatus().equals("Start")) {
+                    myViewModel.increaseUserSecuence(Data.colors.indexOf(color))
+                    Data.sounds[Data.colors.indexOf(color)].start()
+                    myViewModel.showButtonPressed(color)
+                }
+            },
+            shape = RectangleShape,
+            modifier = Modifier
+                .height(200.dp)
+                .width(200.dp)
+                .padding(50.dp, 50.dp),
+            colors = ButtonDefaults.buttonColors(color.value)
+        ){
+            // Contenido del botón (puede ser una imagen u otro contenido)
+        }
+    }
+}
