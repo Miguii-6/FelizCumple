@@ -22,7 +22,6 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
                 }
             }
         }
@@ -30,14 +29,6 @@ class MainActivity : ComponentActivity() {
 }
 
 
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
 
 /**
  * Esta función define una vista previa de una tarjeta de cumpleaños personalizada.
@@ -47,6 +38,5 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun CartaCumplePreview() {
     FelizCumpleTheme {
-        Greeting("Miguel")
     }
 }

@@ -81,3 +81,57 @@ fun CartaCumplePreview() {
 Resultado al realizar el cambio en la parte de la ventana de la derecha del diseño Split anteriormente comentado:
 
 ![Miguel](Imagenes/img_2.png)
+
+### Nuevo elemento de texto
+El siguiente cambio que haremos sera para agregar un nuevo elemento de texto para crear un saludo de cumpleaños.
+
+Empezaremos quitando el siguiente código:
+
+```php
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "Hello $name!",
+        modifier = modifier
+    )
+}
+```
+
+Y ahora al quitar esa función procederemos a quitar los errores. En la función `onCreate()` se llama a esta función
+donde también lo eliminaremos. Este es el error de la función `onCreate()`:
+
+![Greeting](Imagenes/img_3.png)
+
+Y también dará error en la función de `CartaCumplePreview()` con el mismo error y también eliminaremos donde se llama
+a la función eliminada. Quedará tu archivo de `MainActivity.kt` similar a este código:
+
+```php
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            FelizCumpleTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                }
+            }
+        }
+    }
+}
+
+
+
+/**
+ * Esta función define una vista previa de una tarjeta de cumpleaños personalizada.
+ * La tarjeta muestra un saludo de cumpleaños para un destinatario específico en este caso Miguel.
+ */
+@Preview(showBackground = true)
+@Composable
+fun CartaCumplePreview() {
+    FelizCumpleTheme {
+    }
+}
+```
