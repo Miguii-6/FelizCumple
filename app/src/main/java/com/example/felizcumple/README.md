@@ -149,3 +149,25 @@ nombre la clase `: ViewModel()`.
     }
 ```
 
+- Función para iluminar el color del juego:
+
+```kotlin
+fun lightenColor(color: Color, factor: Float): Color {
+        val r = (color.red * 255 * (1 - factor) / 255 + factor).coerceIn(0f, 1f)
+        val g = (color.green * 255 * (1 - factor) / 255 + factor).coerceIn(0f, 1f)
+        val b = (color.blue * 255 * (1 - factor) / 255 + factor).coerceIn(0f, 1f)
+        return Color(r, g, b, color.alpha)
+    }
+```
+
+- Función para escurecer el color del juego al pulsarlo:
+
+```kotlin
+fun darkenColor(color: Color, factor: Float): Color {
+        val r = (color.red * (1 - factor)).coerceIn(0f, 1f)
+        val g = (color.green * (1 - factor)).coerceIn(0f, 1f)
+        val b = (color.blue * (1 - factor)).coerceIn(0f, 1f)
+        return Color(r, g, b, color.alpha)
+    }
+```
+
