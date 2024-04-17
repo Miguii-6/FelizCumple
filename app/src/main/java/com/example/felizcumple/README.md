@@ -154,3 +154,11 @@ primer elemento secundario.
 fun GreetingText(modifier: Modifier = Modifier) {
 }
 ```
+
+Procederemos al mensage agregando un parámetro `message` de tipo `String` a esta misma función.
+
+```php
+@Composable
+fun GreetingText(message: String, modifier: Modifier = Modifier) {
+}
+```
