@@ -1,0 +1,33 @@
+# Simón Dice en Kotlin
+## ¡Bienvenido al juego de Simón Dice implementado en Kotlin!
+
+Este proyecto es una implementación del clásico juego de Simón Dice, donde el jugador debe repetir una secuencia
+creciente de colores. El objetivo es recordar correctamente la secuencia y seguir avanzando en el juego sin cometer
+errores.
+
+## Clase data
+Empezaremos con todas las variables que usaremos:
+
+- Data: Un objeto singleton que almacena los datos del juego, incluyendo la ronda actual, el estado de reproducción, las
+  secuencias del usuario y el bot, el récord, el estado del juego, los colores.
+
+```kotlin
+object Data {
+    var round = mutableStateOf(0)
+    var playStatus = mutableStateOf("Start")
+    var UserSecuence = mutableListOf<Int>()
+    var botSecuence = mutableListOf<Int>()
+    var record = mutableStateOf(0)
+    var state = State.START
+    var colors = listOf(
+        MyColors.BLUE.color,
+        MyColors.GREEN.color,
+        MyColors.RED.color,
+        MyColors.YELLOW.color
+    )
+    var colorsMyColors = MyColors.values()
+    var colorFlag: Color = Color.White
+    var colorUserFlag: Color = Color.White
+
+```
+
