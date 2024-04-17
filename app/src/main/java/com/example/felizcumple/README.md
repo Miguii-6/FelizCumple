@@ -92,11 +92,6 @@ nombre la clase `: ViewModel()`.
 - Función para generar un número aleatorio:
 
 ```kotlin
-/**
-     * Genera un número aleatorio
-     * @param max número máximo a generar
-     * @return número aleatorio
-     */
     fun generateRandomNumber(max: Int): Int {
         return (0..max-1).random()
     }
@@ -105,9 +100,6 @@ nombre la clase `: ViewModel()`.
 - Función para reiniciar la ronda:
 
 ```kotlin
-/**
-     * Reinicia la ronda
-     */
     fun resetRound() {
         Data.round.value = 0
     }
@@ -116,9 +108,6 @@ nombre la clase `: ViewModel()`.
 - Función para reiniciar la secuencia del usuario:
 
 ```kotlin
- /**
-     * Reinicia la secuencia del usuario
-     */
     fun resetUserSecuence() {
         Data.UserSecuence.clear()
     }
@@ -127,9 +116,6 @@ nombre la clase `: ViewModel()`.
 - Función para reiniciar la secuencia del bot:
 
 ```kotlin
-/**
-     * Reinicia la secuencia del bot
-     */
     fun resetBotSecuence() {
         Data.botSecuence.clear()
     }
@@ -138,9 +124,7 @@ nombre la clase `: ViewModel()`.
 - Función para empezar el juego y reiniciarlo, esta es una que llama a las funciones anteriores:
 
 ```kotlin
-/**
-     * Reinicia y inicia el juego
-     */
+
     fun initGame() {
         resetRound()
         resetUserSecuence()
@@ -174,9 +158,6 @@ fun darkenColor(color: Color, factor: Float): Color {
 - Función que muestra la secuencia del bot al usuario
 
 ```kotlin
-/**
-     * Muestra la secuencia del bot al usuario
-     */
     fun showBotSequence() {
         viewModelScope.launch {
             for (colorIndex in Data.botSecuence) {
@@ -197,19 +178,13 @@ fun darkenColor(color: Color, factor: Float): Color {
 Una de las que llama es `addBotSecuence` que añade el número a la secuencia del bot y después la función `showSecuence` que es la muestra la secuencia
 que a su vez llama a la anterior función `showBotSequence`
 ```kotlin
-/**
-     * Incrementa la secuencia del bot y muestra los colores al usuario
-     */
+
     fun increaseShowBotSecuence() {
         Data.state = State.SEQUENCE
         Log.d("ESTADO", Data.state.toString())
         addBotSecuence()
         showSecuence()
     }
-
-    /**
-     * Añade un número a la secuencia del bot
-     */
     fun addBotSecuence() {
         Data.botSecuence.add(generateRandomNumber(4))
     }
@@ -223,10 +198,7 @@ que a su vez llama a la anterior función `showBotSequence`
 - Función para la pulsación del botón de color por parte del user:
 
 ```kotlin
-/**
-     * Maneja la pulsación de un botón de color por parte del usuario
-     * @param color color seleccionado por el usuario
-     */
+
     fun showButtonPressed(color: MutableState<Color>) {
         viewModelScope.launch {
             Data.state = State.INPUT
@@ -242,10 +214,6 @@ que a su vez llama a la anterior función `showBotSequence`
 - Función que incrementa la secuencia del usuario:
 
 ```kotlin
-/**
-     * Incrementa la secuencia del usuario
-     * @param color color introducido por el usuario
-     */
     fun increaseUserSecuence(color: Int) {
         Data.state = State.INPUT
         Log.d("ESTADO", Data.state.toString())
@@ -292,4 +260,24 @@ que a su vez llama a la anterior función `showBotSequence`
         return Data.record.value
     }
 ```
+
+- Función para cambiar el estado del juego
+
+```kotlin
+    fun changePlayStatus() {
+        if (Data.playStatus.value == "Start") {
+            Data.playStatus.value = "Reset"
+            Data.round.value++
+            increaseShowBotSecuence()
+        } else {
+            // Si no se encuentra en estado SEQUENCE o INPUT, se restablece el juego
+            if (Data.state != State.SEQUENCE && Data.state != State.INPUT) {
+                Data.playStatus.value = "Start"
+                initGame()
+            }
+        }
+    }
+
+```
+
 

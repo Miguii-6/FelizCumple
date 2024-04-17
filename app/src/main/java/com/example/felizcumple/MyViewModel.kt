@@ -183,6 +183,25 @@ class MyViewModel: ViewModel()  {
         return Data.record.value
     }
 
+    /**
+     * Cambia el estado de reproducción del juego
+     */
+    fun changePlayStatus() {
+        if (Data.playStatus.value == "Start") {
+            Data.playStatus.value = "Reset"
+            Data.round.value++
+            increaseShowBotSecuence()
+        } else {
+            // Si no se encuentra en estado SEQUENCE o INPUT, se restablece el juego
+            if (Data.state != State.SEQUENCE && Data.state != State.INPUT) {
+                Data.playStatus.value = "Start"
+                initGame()
+            }
+        }
+    }
+
+
+
 
 
 }
