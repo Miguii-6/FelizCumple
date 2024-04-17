@@ -51,3 +51,13 @@ enum class State {
     CHECKING,
     FINISH
 }
+// Objeto que proporciona el contexto de la aplicación
+object DataContext {
+    // Contexto de la aplicación (inicializado posteriormente)
+    lateinit var context: Context
+
+    // Función para inicializar el contexto
+    fun init(context: Context) {
+        this.context = context
+    }
+}

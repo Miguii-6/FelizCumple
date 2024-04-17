@@ -36,6 +36,38 @@ donde estan los colores usados y de ahí los errores.
 
 
 - **MyColors:** Una enumeración que define los colores utilizados en el juego como valores con estado mutable (MutableState<Color>).
+```kotlin 
+
+// Enumeración que define los colores del juego
+enum class MyColors(val color: MutableState<Color>) {
+    BLUE(mutableStateOf(Color.Blue)),
+    GREEN(mutableStateOf(Color.Green)),
+    RED(mutableStateOf(Color.Red)),
+    YELLOW(mutableStateOf(Color.Yellow))
+}
+
+```
+
+- **State:** Una enumeración que define los posibles estados del juego, como el inicio, la visualización de secuencias, la
+  espera de entrada, la entrada del jugador, la verificación y la finalización del juego.
+```kotlin
+// Enumeración que define los estados del juego
+enum class State {
+    START,
+    SEQUENCE,
+    WAITING,
+    INPUT,
+    CHECKING,
+    FINISH
+}
+
+```
+
+- **DataContext:** Un objeto que proporciona el contexto de la aplicación, necesario para cargar 
+recursos.
+
+```kotlin
+- **MyColors:** Una enumeración que define los colores utilizados en el juego como valores con estado mutable (MutableState<Color>).
 ```php 
 
 // Enumeración que define los colores del juego
@@ -62,4 +94,21 @@ enum class State {
 }
 
 ```
+
+- **DataContext:** Un objeto que proporciona el contexto de la aplicación, necesario para cargar
+  recursos.
+
+```php
+// Objeto que proporciona el contexto de la aplicación
+object DataContext {
+    // Contexto de la aplicación (inicializado posteriormente)
+    lateinit var context: Context
+
+    // Función para inicializar el contexto
+    fun init(context: Context) {
+        this.context = context
+    }
+}
+```
+
 
