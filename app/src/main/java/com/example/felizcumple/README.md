@@ -77,3 +77,7 @@ fun CartaCumplePreview() {
     }
 }
 ```
+
+Resultado al realizar el cambio en la parte de la ventana de la derecha del diseño Split anteriormente comentado:
+
+![Miguel](Imagenes/img_2.png)
