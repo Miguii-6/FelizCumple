@@ -396,6 +396,57 @@ fun columnButtonSimon(color: MutableState<Color>, myViewModel: MyViewModel){
 
 ```
 
+- Función composable para el botón de inicio y de aumento de ronda:
+
+```kotlin
+@Composable
+fun startIncreaseRound(miViewModel: MyViewModel) {
+    Row {
+        Column {
+            Button(
+                onClick = {
+                    // Cambia el estado de reproducción del juego
+                    miViewModel.changePlayStatus()
+                },
+                modifier = Modifier
+                    .height(200.dp)
+                    .width(200.dp)
+                    .padding(50.dp, 50.dp)
+            ) {
+                Text(
+                    text = miViewModel.getPlayStatus(), textAlign = TextAlign.Center
+                )
+            }
+        }
+        Column {
+            Button(
+                onClick = {
+                    // Comprueba la secuencia introducida por el usuario cuando se presiona el botón de reproducción
+                    if (miViewModel.getPlayStatus().equals("Start")) {
+                        // No hace nada si el juego está en modo "Start"
+                    } else {
+                        // Comprueba la secuencia del usuario si no está en modo de secuencia o entrada
+                        if (Data.state != State.SEQUENCE && Data.state != State.INPUT) {
+                            miViewModel.checkSecuence()
+                        }
+                    }
+                },
+                modifier = Modifier
+                    .height(200.dp)
+                    .width(200.dp)
+                    .padding(50.dp, 50.dp)
+            ) {
+                // Contenido del botón (imagen de reproducción)
+                Image(
+                    painter = painterResource(id = R.drawable.play_arrow),
+                    contentDescription = stringResource(id = R.string.arrowDescription)
+                )
+            }
+        }
+    }
+}
+```
+
 
 
 

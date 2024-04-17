@@ -1,18 +1,30 @@
 package com.example.felizcumple.ui.theme
 
 import android.content.Context
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import com.example.felizcumple.MyViewModel
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
+import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.felizcumple.Data
 import com.example.felizcumple.MyColors
+import com.example.felizcumple.State
 import com.example.merge.R
 
 
@@ -96,7 +108,6 @@ fun columnButtonSimon(color: MutableState<Color>, myViewModel: MyViewModel){
                 // Maneja la lógica de interacción cuando se presiona un botón de color
                 if (Data.state != State.SEQUENCE && Data.state != State.INPUT && !myViewModel.getPlayStatus().equals("Start")) {
                     myViewModel.increaseUserSecuence(Data.colors.indexOf(color))
-                    Data.sounds[Data.colors.indexOf(color)].start()
                     myViewModel.showButtonPressed(color)
                 }
             },
@@ -108,6 +119,51 @@ fun columnButtonSimon(color: MutableState<Color>, myViewModel: MyViewModel){
             colors = ButtonDefaults.buttonColors(color.value)
         ){
             // Contenido del botón (puede ser una imagen u otro contenido)
+        }
+    }
+}
+/**
+ * Composable que muestra los controles de inicio y aumento de ronda del juego "Simón Dice".
+ * @param miViewModel ViewModel que contiene la lógica del juego.
+ */
+@Composable
+fun startIncreaseRound(miViewModel: MyViewModel) {
+    Row {
+        Column {
+            Button(
+                onClick = {
+                    // Cambia el estado de reproducción del juego
+                    miViewModel.changePlayStatus()
+                },
+                modifier = Modifier
+                    .height(200.dp)
+                    .width(200.dp)
+                    .padding(50.dp, 50.dp)
+            ) {
+                Text(
+                    text = miViewModel.getPlayStatus(), textAlign = TextAlign.Center
+                )
+            }
+        }
+        Column {
+            Button(
+                onClick = {
+                    // Comprueba la secuencia introducida por el usuario cuando se presiona el botón de reproducción
+                    if (miViewModel.getPlayStatus().equals("Start")) {
+                        // No hace nada si el juego está en modo "Start"
+                    } else {
+                        // Comprueba la secuencia del usuario si no está en modo de secuencia o entrada
+                        if (Data.state != State.SEQUENCE && Data.state != State.INPUT) {
+                            miViewModel.checkSecuence()
+                        }
+                    }
+                },
+                modifier = Modifier
+                    .height(200.dp)
+                    .width(200.dp)
+                    .padding(50.dp, 50.dp)
+            ) {
+            }
         }
     }
 }
