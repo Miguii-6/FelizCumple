@@ -406,3 +406,57 @@ class MainActivity : ComponentActivity() {
 Resultado en el emulador en mi caso:
 
 ![Movil](Imagenes/img_13.png)
+
+
+#### Como centrar el saludo
+
+Para alinear el saludo en el centro de la pantalla tendras que ir a la función de `GreetingText` y en donde estan los
+parentesis con el `modifier` le agregas un parámetro llamado `verticalArrangement` y configúralo en `Arrangement.Center`.
+Y en el `modifier` le agregas un padding en este caso de `8.dp`. Así seria el código:
+
+```kotlin
+@Composable
+fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        modifier = modifier.padding(8.dp)
+    ) {
+        // ...
+    }
+}
+```
+
+**Importante** tienes que importar esto `import androidx.compose.foundation.layout.Arrangement` si no te saldra este
+error que no tienes que implementarlo manualmente pero si tienes que darle click en el error y a `import`
+
+![Arrangement](Imagenes/img_14.png)
+
+Y para acabar y ponerlo todo más bonito usaremos un `textAlign` también en la función de `GreetingText`, primero
+lo pondremos en el mensaje asi seria el código:
+
+```kotlin
+Text(
+            text = message,
+            fontSize = 100.sp,
+            lineHeight = 116.sp,
+            textAlign = TextAlign.Center
+
+        )
+```
+
+Y ahoro lo agregaremos tambien a la firma el padding y la alineación desde al izquierda, así seria el código:
+```kotlin
+Text(
+            text = from,
+            fontSize = 30.sp,
+            modifier = Modifier
+                .padding(16.dp)
+                .align(alignment = Alignment.End)
+        )
+```
+
+Así es como se ve el resultado final de esta app de cartas para felicitar el cumpleaños a alguien solo hay que cambiar
+los nombres:
+
+![Fin](Imagenes/img_15.png)
+
