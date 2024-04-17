@@ -220,3 +220,24 @@ que a su vez llama a la anterior función `showBotSequence`
 
 ```
 
+- Función para la pulsación del botón de color por parte del user:
+
+```kotlin
+/**
+     * Maneja la pulsación de un botón de color por parte del usuario
+     * @param color color seleccionado por el usuario
+     */
+    fun showButtonPressed(color: MutableState<Color>) {
+        viewModelScope.launch {
+            Data.state = State.INPUT
+            Data.colorUserFlag = color.value
+            color.value = darkenColor(Data.colorUserFlag, 0.5f)
+            delay(250L)
+            color.value = Data.colorUserFlag
+            Data.state = State.WAITING
+        }
+    }
+```
+
+
+
