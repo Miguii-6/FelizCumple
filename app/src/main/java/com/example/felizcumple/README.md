@@ -530,7 +530,87 @@ Donde en la parte de `Theme` agregaremos una `Surface` y también una línea de 
 interfaz del user llamando a `myViewModel` así quedaria el código de `GreetingPreview` entero:
 ```kotlin
 
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    var myViewModel = MyViewModel()
+    FelizCumpleTheme {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = Color(255,100,150)
+        ) {
+            UserInterface(miViewModel = myViewModel)
+        }
+    }
+}
 ```
 
+Ahora para acabar con el código haremos los cambios pertinentes en la función `onCreate` en esta 
+función añadiremos encima de `setContent` las siguientes dos lineas:
+```kotlin
+DataContext.init(applicationContext)
+var myViewModel = MyViewModel()
+```
+Después cambiaremos en `Surface` el color a en este caso:
+```kotlin
+color = Color(255,100,150)
+
+```
+
+Y justo en la misma línea donda antes eliminamos la línea de codigo de cuando se llamaba al `Greeting`
+ahí pondremos la siguiente línea:
+```kotlin
+UserInterface(miViewModel = myViewModel)
+```
+
+Quedaria como resultado de esta clase con el código completo:
+
+```kotlin
+package com.example.felizcumple
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.felizcumple.ui.theme.FelizCumpleTheme
+import com.example.felizcumple.ui.theme.UserInterface
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        DataContext.init(applicationContext)
+        var myViewModel = MyViewModel()
+        setContent {
+            FelizCumpleTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = Color(255,100,150)
+                ) {
+                    UserInterface(miViewModel = myViewModel)
+                }
+            }
+        }
+    }
+}
 
 
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    var myViewModel = MyViewModel()
+    FelizCumpleTheme {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = Color(255,100,150)
+        ) {
+            UserInterface(miViewModel = myViewModel)
+        }
+    }
+}
+```
