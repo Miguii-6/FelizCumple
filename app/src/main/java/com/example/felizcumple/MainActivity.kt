@@ -33,6 +33,7 @@ class MainActivity : ComponentActivity() {
 fun GreetingText(message: String, modifier: Modifier = Modifier) {
     Text(
         text = message
+    )
 }
 
 
