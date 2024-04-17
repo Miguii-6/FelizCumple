@@ -111,4 +111,26 @@ object DataContext {
 }
 ```
 
+## Clase MyViewModel
+
+La clase MyViewModel es un componente crucial en la implementación del juego "Simón Dice" en Kotlin con Android. Este
+ViewModel está diseñado para gestionar la lógica del juego y mantener el estado de los datos necesarios para su funcionamiento.
+
+Empezaremos importando `import androidx.lifecycle.ViewModel` no manualmente si no al que te de error al poner al lado del
+nombre la clase `: ViewModel()`.
+
+### Funciones
+
+- función para generar un número aleatorio:
+
+```php
+/**
+     * Genera un número aleatorio
+     * @param max número máximo a generar
+     * @return número aleatorio
+     */
+    fun generateRandomNumber(max: Int): Int {
+        return (0..max-1).random()
+    }
+```
 
