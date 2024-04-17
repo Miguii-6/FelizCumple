@@ -124,3 +124,14 @@ nombre la clase `: ViewModel()`.
     }
 ```
 
+- Función para reiniciar la secuencia del bot:
+
+```
+/**
+     * Reinicia la secuencia del bot
+     */
+    fun resetBotSecuence() {
+        Data.botSecuence.clear()
+    }
+```
+

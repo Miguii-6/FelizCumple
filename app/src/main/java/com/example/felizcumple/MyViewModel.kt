@@ -25,4 +25,12 @@ class MyViewModel: ViewModel()  {
     fun resetUserSecuence() {
         Data.UserSecuence.clear()
     }
+
+    /**
+     * Reinicia la secuencia del bot
+     */
+    fun resetBotSecuence() {
+        Data.botSecuence.clear()
+    }
+
 }
