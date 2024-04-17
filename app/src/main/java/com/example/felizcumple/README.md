@@ -217,3 +217,25 @@ un argumento `fontSize` y coomo segundo argumento en mi ejemplo pondremos el val
 importar `androidx.compose.ui.unit.sp` para que non aparezca o siguiente error:
 
 ![SP](Imagenes/img_5.png)
+
+Resultado en el panel Split en la ventana de la derecha:
+
+![SPResultado](Imagenes/img_6.png)
+
+Dada la superposición de las palabras tendremos que actualizar el elemento `Text` componible de modo que incluya la
+altura de la línea con `lineHeight` donde en mi caso le pondre el valor de `116.sp`. Así seria el código en mi caso:
+
+```php
+@Composable
+fun GreetingText(message: String, modifier: Modifier = Modifier) {
+    Text(
+        text = message,
+        fontSize = 100.sp,
+        lineHeight = 116.sp
+
+    )
+}
+```
+
+Y se veria así en la vista previa:
+![LHResultado](Imagenes/img_7.png)
