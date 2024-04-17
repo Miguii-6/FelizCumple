@@ -50,3 +50,30 @@ el proyecto.
 Así es el proyecto en zona de split en la ventana de la derecha para como es al inicio:
 
 ![Inicio](Imagenes/img_1.png)
+
+### Primeros cambios:
+
+En esta parte del código:
+
+```kotlin
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    FelizCumpleTheme {
+        Greeting("Android")
+    }
+}
+```
+
+Cambiaremos el nombre de la función a uno acorde a nuestro nombre del proyecto en mi caso a CartaCumple y en el apartado
+de `Greeeting` lo de dentro de parentesis a tu nombre y se quedaría así:
+
+```kotlin
+@Preview(showBackground = true)
+@Composable
+fun CartaCumplePreview() {
+    FelizCumpleTheme {
+        Greeting("Miguel")
+    }
+}
+```

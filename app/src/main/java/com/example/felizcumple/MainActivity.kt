@@ -29,6 +29,8 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+
+
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
@@ -37,10 +39,14 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
+/**
+ * Esta función define una vista previa de una tarjeta de cumpleaños personalizada.
+ * La tarjeta muestra un saludo de cumpleaños para un destinatario específico en este caso Miguel.
+ */
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun CartaCumplePreview() {
     FelizCumpleTheme {
-        Greeting("Android")
+        Greeting("Miguel")
     }
 }
