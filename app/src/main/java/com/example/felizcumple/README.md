@@ -225,7 +225,7 @@ Resultado en el panel Split en la ventana de la derecha:
 Dada la superposición de las palabras tendremos que actualizar el elemento `Text` componible de modo que incluya la
 altura de la línea con `lineHeight` donde en mi caso le pondre el valor de `116.sp`. Así seria el código en mi caso:
 
-```php
+```kotlin
 @Composable
 fun GreetingText(message: String, modifier: Modifier = Modifier) {
     Text(
@@ -239,3 +239,52 @@ fun GreetingText(message: String, modifier: Modifier = Modifier) {
 
 Y se veria así en la vista previa:
 ![LHResultado](Imagenes/img_7.png)
+
+### Otro nuevo elemento de texto
+
+Con este nuevo elemento buscaremos para la carta de cumpleaños poner el nombre de quien envia la carta de felicitaciones.
+Comenzaremos llendo a la función de `GreetingText()` y entre los parentesis de la función meteremos un parámetro `from`
+de tipo `String`. Así seria
+
+```php
+fun GreetingText(message: String, from: String, modifier: Modifier = Modifier)
+```
+
+En la misma función agregaremos otro elemento componible de tipo `Text` que acepte un argumento `text` con el valor de
+`from` y le pones un argumento de fontSize cun valor en mi caso de `30.sp`. Así seria el código:
+
+```php
+@Composable
+fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
+    Text(
+        text = message,
+        fontSize = 100.sp,
+        lineHeight = 116.sp
+
+    )
+    Text(
+        text = from,
+        fontSize = 30.sp
+    )
+}
+```
+
+Para acabar de agregarlo nos desplazaremos a la función de `CartaCumplePreview()`, en esta función agregaremos un nuevo
+argumento String para firmar la tarjeta en mi caso lo firmare así `De Miguel`. El código sería asi desta función:
+
+```php
+@Preview(showBackground = true)
+@Composable
+fun CartaCumplePreview() {
+    FelizCumpleTheme {
+        GreetingText(message = "Feliz Cumple Juan", from ="De Miguel")
+    }
+}
+```
+
+Así seria el resultado de la vista previa:
+
+![From](Imagenes/img_8.png)
+
+
+

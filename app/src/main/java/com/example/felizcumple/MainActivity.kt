@@ -31,12 +31,16 @@ class MainActivity : ComponentActivity() {
 
 
 @Composable
-fun GreetingText(message: String, modifier: Modifier = Modifier) {
+fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
     Text(
         text = message,
         fontSize = 100.sp,
         lineHeight = 116.sp
 
+    )
+    Text(
+        text = from,
+        fontSize = 30.sp
     )
 }
 
@@ -49,6 +53,6 @@ fun GreetingText(message: String, modifier: Modifier = Modifier) {
 @Composable
 fun CartaCumplePreview() {
     FelizCumpleTheme {
-        GreetingText(message = "Feliz Cumple Juan")
+        GreetingText(message = "Feliz Cumple Juan", from ="From Emma")
     }
 }
