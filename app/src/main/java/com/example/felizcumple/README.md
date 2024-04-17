@@ -190,3 +190,7 @@ fun CartaCumplePreview() {
     }
 }
 ```
+
+Resultado en la ventana de la derecha del panel de Split:
+
+![Juan](Imagenes/img_4.png)
