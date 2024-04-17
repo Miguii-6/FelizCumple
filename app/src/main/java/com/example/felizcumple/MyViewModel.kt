@@ -6,7 +6,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.delay
-
+import kotlinx.coroutines.runBlocking
 
 
 class MyViewModel: ViewModel()  {
@@ -92,6 +92,28 @@ class MyViewModel: ViewModel()  {
         }
         Log.d("ESTADO", Data.botSecuence.toString())
     }
+
+    /**
+     * Incrementa la secuencia del bot y muestra los colores al usuario
+     */
+    fun increaseShowBotSecuence() {
+        Data.state = State.SEQUENCE
+        Log.d("ESTADO", Data.state.toString())
+        addBotSecuence()
+        showSecuence()
+    }
+
+    /**
+     * Añade un número a la secuencia del bot
+     */
+    fun addBotSecuence() {
+        Data.botSecuence.add(generateRandomNumber(4))
+    }
+
+    fun showSecuence() = runBlocking {
+        showBotSequence()
+    }
+
 
 
 }

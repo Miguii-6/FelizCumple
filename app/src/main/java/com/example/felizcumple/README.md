@@ -193,4 +193,30 @@ fun darkenColor(color: Color, factor: Float): Color {
         Log.d("ESTADO", Data.botSecuence.toString())
     }
 ```
+- Función principal `increaseShowBotSecuence` que llama a otras funciones, esta incrementa la secuencia del bot y muestra los colores al usuario.
+Una de las que llama es `addBotSecuence` que añade el número a la secuencia del bot y después la función `showSecuence` que es la muestra la secuencia
+que a su vez llama a la anterior función `showBotSequence`
+```kotlin
+/**
+     * Incrementa la secuencia del bot y muestra los colores al usuario
+     */
+    fun increaseShowBotSecuence() {
+        Data.state = State.SEQUENCE
+        Log.d("ESTADO", Data.state.toString())
+        addBotSecuence()
+        showSecuence()
+    }
+
+    /**
+     * Añade un número a la secuencia del bot
+     */
+    fun addBotSecuence() {
+        Data.botSecuence.add(generateRandomNumber(4))
+    }
+
+    fun showSecuence() = runBlocking {
+        showBotSequence()
+    }
+
+```
 
