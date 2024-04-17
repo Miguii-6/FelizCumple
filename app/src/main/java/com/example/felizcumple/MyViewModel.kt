@@ -129,6 +129,17 @@ class MyViewModel: ViewModel()  {
             Data.state = State.WAITING
         }
     }
+    /**
+     * Incrementa la secuencia del usuario
+     * @param color color introducido por el usuario
+     */
+    fun increaseUserSecuence(color: Int) {
+        Data.state = State.INPUT
+        Log.d("ESTADO", Data.state.toString())
+        Data.UserSecuence.add(color)
+        Data.state = State.WAITING
+        Log.d("ESTADO", Data.state.toString())
+    }
 
 
 
