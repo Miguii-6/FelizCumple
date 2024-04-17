@@ -288,3 +288,35 @@ que a su vez llama a la anterior función `showBotSequence`
     }
 ```
 
+## Clase UI
+
+la clase ui proporciona las funciones Compose necesarias para representar la interfaz gráfica del 
+juego "Simón Dice", permitiendo al usuario interactuar con la aplicación a través de botones de 
+colores y controles de juego. Esta clase es fundamental para la visualización y manipulación de la 
+interfaz de usuario dentro del entorno de Jetpack Compose.
+
+
+la variable `ctxt` se utiliza para almacenar y acceder al contexto de la aplicación en el entorno de 
+Jetpack Compose, permitiendo interactuar con recursos y servicios de Android de manera segura y 
+eficiente dentro de la interfaz de usuario del juego "Simón Dice".
+
+- Función composable que define la interfaz de usuario principal del juego:
+
+```kotlin
+@Composable
+fun UserInterface(miViewModel: MyViewModel) {
+    ctxt = LocalContext.current
+    miViewModel
+    Column {
+        round(miViewModel)
+        botonesSimon(miViewModel)
+        startIncreaseRound(miViewModel)
+    }
+}
+```
+
+
+
+
+
+
