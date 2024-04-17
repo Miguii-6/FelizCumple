@@ -44,5 +44,6 @@ fun GreetingText(message: String, modifier: Modifier = Modifier) {
 @Composable
 fun CartaCumplePreview() {
     FelizCumpleTheme {
+        GreetingText(message = "Feliz Cumple Juan")
     }
 }

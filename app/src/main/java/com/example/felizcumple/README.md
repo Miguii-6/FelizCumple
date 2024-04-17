@@ -87,7 +87,7 @@ El siguiente cambio que haremos sera para agregar un nuevo elemento de texto par
 
 Empezaremos quitando el siguiente código:
 
-```php
+```kotlin
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
@@ -105,7 +105,7 @@ donde también lo eliminaremos. Este es el error de la función `onCreate()`:
 Y también dará error en la función de `CartaCumplePreview()` con el mismo error y también eliminaremos donde se llama
 a la función eliminada. Quedará tu archivo de `MainActivity.kt` similar a este código:
 
-```php
+```kotlin
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -140,7 +140,7 @@ Para añadir el elemento de texto encima de la función `CartaCumplePreview()`, 
 `GreetingText()`. Importante agrega también el `@Composable` antes de la función, ya que esta función de Compose será
 un elemento componible `Text`. Así seria como estaría el código agregado:
 
-```php 
+```kotlin 
 @Composable
 fun GreetingText() {
 }
@@ -149,7 +149,7 @@ fun GreetingText() {
 Seguiremos añadiendo al elemento componible entre los parentesis un parámetro `Modifier` y pase ese `modifier`  a su
 primer elemento secundario.
 
-```php 
+```kotlin 
 @Composable
 fun GreetingText(modifier: Modifier = Modifier) {
 }
@@ -157,7 +157,7 @@ fun GreetingText(modifier: Modifier = Modifier) {
 
 Procederemos al mensage agregando un parámetro `message` de tipo `String` a esta misma función.
 
-```php
+```kotlin
 @Composable
 fun GreetingText(message: String, modifier: Modifier = Modifier) {
 }
@@ -166,11 +166,27 @@ fun GreetingText(message: String, modifier: Modifier = Modifier) {
 Seguiremos con la misma función agregando un elemento `Text` componible para que pase el mensaje  de texto como un
 argumento con nombre.
 
-```php
+```kotlin
 @Composable
 fun GreetingText(message: String, modifier: Modifier = Modifier) {
     Text(
         text = message
     )
+}
+```
+
+Para ver una vista previa de la función `GreetingText()` en el panel Split en la ventana derecha.
+
+- Llamaremos a la función de `GreetingText()` dentro de la función de `CartaCumplePreview()`. Seguiremos añadiendo entre
+  los parentesis un argumento tipo `String`, seria el mensaje de cumpleaños para tu amigo quedaria asi el código de
+  `CartaCumplePreview()`:
+
+```kotlin
+@Preview(showBackground = true)
+@Composable
+fun CartaCumplePreview() {
+    FelizCumpleTheme {
+        GreetingText(message = "Feliz Cumple Juan")
+    }
 }
 ```
