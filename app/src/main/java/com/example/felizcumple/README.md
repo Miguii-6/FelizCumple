@@ -629,3 +629,47 @@ fun GreetingPreview() {
 
 Como yo entregue en la primera entrega con MVVC ya hecho, voy a explicar como es el cambio de tener el código en la UI
 todo junto a tener todo bien estructurado en una arquitectura MVVC.
+La refactorización implica reestructurar el código para separar la lógica del juego y la gestión de 
+datos de la interfaz de usuario utilizando la arquitectura MVVC.
+
+
+
+### Paso 1: Definir el Modelo
+
+Creamos la clase `Data` para almacenar los datos del juego y los enums `State` y `MyColors` para 
+representar los estados del juego y los colores utilizados.
+
+- **Data:** Almacena los datos del juego, como la ronda actual, el récord, la secuencia del bot y 
+del usuario, entre otros.
+
+- **State:** Enumera los posibles estados del juego, como inicio, secuencia, entrada, verificación, etc.
+
+- **MyColors:** Enumera los colores utilizados en el juego, cada uno representado por un objeto con un color mutable.
+
+### Paso 2: Definir el ViewModel
+
+Creamos la clase `MyViewModel`, que extiende `ViewModel`, para manejar la lógica del juego y actuar 
+como un puente entre el modelo y la vista. Este ViewModel se encarga de:
+
+- Inicializar el juego.
+- Generar números aleatorios.
+- Controlar la secuencia del bot.
+- Manejar la secuencia del usuario.
+- Verificar la secuencia del usuario.
+- Actualizar el modelo en respuesta a las interacciones del usuario.
+
+### Paso 3: Definir la Vista (UI)
+
+En esta fase, creamos funciones `@Composable` para definir la interfaz de usuario utilizando 
+Jetpack Compose. Estas funciones son responsables de mostrar los datos del juego y manejar las 
+interacciones del usuario.
+
+### Paso 4: Configurar MainActivity
+
+Configuramos la `MainActivity` para utilizar el `ViewModel`, el `Controller` y cargar la interfaz de usuario.
+
+Este proceso mejora la estructura del código al separar las preocupaciones y hacer que el código sea 
+más modular y fácil de mantener. Cada componente (Data, UI, ViewModel) tiene una 
+función claramente definida en el contexto de la arquitectura MVVC, lo que facilita la comprensión y el mantenimiento del código.
+
+
