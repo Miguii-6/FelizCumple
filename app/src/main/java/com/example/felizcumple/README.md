@@ -13,6 +13,7 @@ errores.
 3. [Clase UI](#clase-ui)
 4. [Clase MainActivity](#clase-mainactivity)
 5. [UI a MVVC](#pasar-a-MVVC)
+6. [Diagramas](#diagramas)
 
 
 ## Clase data
@@ -666,10 +667,29 @@ interacciones del usuario.
 
 ### Paso 4: Configurar MainActivity
 
-Configuramos la `MainActivity` para utilizar el `ViewModel`, el `Controller` y cargar la interfaz de usuario.
+Configuramos la `MainActivity` para utilizar el `ViewModel`, el `Data` y cargar la interfaz de usuario.
 
 Este proceso mejora la estructura del código al separar las preocupaciones y hacer que el código sea 
 más modular y fácil de mantener. Cada componente (Data, UI, ViewModel) tiene una 
 función claramente definida en el contexto de la arquitectura MVVC, lo que facilita la comprensión y el mantenimiento del código.
+
+
+## Diagramas
+
+### Diagrama de estado
+```mermaid
+graph TD
+
+[*] --> INICIO
+INICIO --> SECUENCIA
+SECUENCIA --> ESPERA
+ESPERA --> VERIFICACIÓN
+VERIFICACIÓN --> CORRECTO
+VERIFICACIÓN --> INCORRECTO
+CORRECTO --> SECUENCIA
+INCORRECTO --> FIN
+FIN --> [*]
+
+```
 
 
