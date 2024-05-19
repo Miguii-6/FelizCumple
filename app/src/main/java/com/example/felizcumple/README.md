@@ -14,6 +14,7 @@ errores.
 4. [Clase MainActivity](#clase-mainactivity)
 5. [UI a MVVC](#pasar-a-MVVC)
 6. [Diagramas](#diagramas)
+7. [Juego](#juego-funcionando)
 
 
 ## Clase data
@@ -682,6 +683,20 @@ función claramente definida en el contexto de la arquitectura MVVC, lo que faci
 
 ### Diagrama de Flujo
 
-![Estado](Imagenes/img_1.png)
+![Flujo](Imagenes/img_1.png)
+
+## Juego funcionando
+
+Al iniciar el juego te aparece así y te pone un color más oscuro para darle y darle al botón de la derecha que no tiene
+nada.
+![Start](Imagenes/start.jpg)
+
+
+Al perder la secuencia te aparece ese mensaje abajo.
+![GameOver](Imagenes/perder.jpg)
+
+Así es al estar jugando y se ve como el color verde esta más oscuro.
+![Jugando](Imagenes/jugando.jpg)
+
 
 
