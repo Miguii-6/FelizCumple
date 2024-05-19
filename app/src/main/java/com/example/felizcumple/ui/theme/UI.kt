@@ -23,8 +23,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.felizcumple.Data
 import com.example.felizcumple.MyColors
-import com.example.felizcumple.State
 import com.example.felizcumple.R
+import com.example.felizcumple.State
 
 var ctxt: Context? = null
 
