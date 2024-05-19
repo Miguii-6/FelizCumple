@@ -5,6 +5,16 @@ Este proyecto es una implementación del clásico juego de Simón Dice, donde el
 creciente de colores. El objetivo es recordar correctamente la secuencia y seguir avanzando en el juego sin cometer
 errores.
 
+## Índice
+
+1. [Clase Data](#clase-data)
+2. [Clase MyViewModel](#clase-myviewmodel)
+  - [Funciones](#funciones)
+3. [Clase UI](#clase-ui)
+4. [Clase MainActivity](#clase-mainactivity)
+5. [UI a MVVC](#pasar-a-MVVC)
+
+
 ## Clase data
 Empezaremos con todas las variables que usaremos:
 
@@ -614,3 +624,8 @@ fun GreetingPreview() {
     }
 }
 ```
+
+## Pasar a MVVC
+
+Como yo entregue en la primera entrega con MVVC ya hecho, voy a explicar como es el cambio de tener el código en la UI
+todo junto a tener todo bien estructurado en una arquitectura MVVC.
