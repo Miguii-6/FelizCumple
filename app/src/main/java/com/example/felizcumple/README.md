@@ -677,19 +677,11 @@ función claramente definida en el contexto de la arquitectura MVVC, lo que faci
 ## Diagramas
 
 ### Diagrama de estado
-```mermaid
-graph TD
 
-[*] --> INICIO
-INICIO --> SECUENCIA
-SECUENCIA --> ESPERA
-ESPERA --> VERIFICACIÓN
-VERIFICACIÓN --> CORRECTO
-VERIFICACIÓN --> INCORRECTO
-CORRECTO --> SECUENCIA
-INCORRECTO --> FIN
-FIN --> [*]
+![Estado](Imagenes/img.png)
 
-```
+### Diagrama de Flujo
+
+![Estado](Imagenes/img_1.png)
 
 
